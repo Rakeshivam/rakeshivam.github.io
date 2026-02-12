@@ -11,6 +11,14 @@
 
 🔗 **Live Website → https://rakeshivam.github.io**
 
+### Website Preview
+<p align="center"> 
+  <kbd>
+    <a href="https://rakeshivam.github.io" target="_blank"><img src="examples/Preview-img.gif">
+  </a>
+  </kbd>
+</p>
+
 </div>
 
 ---
