@@ -57,6 +57,10 @@
   color: #0077b5;
 }
 
+.code {
+  color: #0f172a;
+}
+
 .angellist {
   color: grey;
 }
@@ -85,6 +89,13 @@
   background-color: black;
 }
 
+.code:hover {
+  background-color: #0f172a;
+  /* color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);  */
+}
+
 /* Buttons - Read Me, Contact Us */
 
 .readme {
@@ -99,7 +110,6 @@
   display: inline-block;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  
 }
 
 /* .readme:hover{
@@ -120,7 +130,6 @@
   margin-top: 1.5em;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  
 }
 
 .contactme:hover {
