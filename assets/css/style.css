@@ -61,16 +61,10 @@
   color: #0f172a;
 }
 
-.angellist {
+/* .angellist {
   color: grey;
-}
+} */
 
-.hackerrank {
-  color: #00cc66;
-}
-.hackerrank:hover {
-  background-color: #00cc66;
-}
 
 .icon-btn:hover {
   transform: scale(1.1);
@@ -81,9 +75,9 @@
   background-color: #0077b5;
 }
 
-.angellist:hover {
+/* .angellist:hover {
   background-color: grey;
-}
+} */
 
 .github:hover {
   background-color: black;
@@ -91,9 +85,9 @@
 
 .code:hover {
   background-color: #0f172a;
-  color: #ffffff;
+  /* color: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25); 
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);  */
 }
 
 /* Buttons - Read Me, Contact Us */
