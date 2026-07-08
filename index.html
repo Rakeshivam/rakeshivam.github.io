@@ -1235,17 +1235,20 @@
 
         <!-- Bottom Section -->
         <div class="footer-row footer-bottom-row">
-          
-
-          <!-- Bottom Col 2: Copyright -->
-          <div class="footer-bottom-col copyright-col">
-            <p class="developed-by">Crafted with <span class="heart">❤️</span> by Rakesh Kushwaha.</p>
-            <p class="copyright">© 2026 Rakesh Kushwaha. All rights reserved.</p>
-            <div class="bottom-links">
-              <a href="#privacy-modal" class="modal-trigger">Privacy Policy</a>
+               <!-- Bottom Content: Copyright & Links -->
+          <div class="footer-bottom-content">
+            <div class="copyright-text">
+              <p>© 2026 Rakesh Kushwaha. All rights reserved.</p>
             </div>
-
-          </div>
+            <div class="crafted-text">
+              <p>Crafted with <span class="heart">❤️</span> by Rakesh Kushwaha</p>
+            </div>
+            <div class="bottom-links">
+              <a href="#privacy-modal" class="modal-trigger footer-hover-link">Privacy Policy</a>
+              <span class="separator">&bull;</span>
+              <a href="#terms-modal" class="modal-trigger footer-hover-link">Terms of Use</a>
+            </div>
+          </div>        </div>
 
 
 
@@ -1259,14 +1262,15 @@
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
       }
-      #privacy-modal {
+      #privacy-modal, #terms-modal {
+        width: 90% !important;
+        max-width: 450px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.4) !important;
+        overflow: hidden !important;
+        background: #fff !important;
         top: 50% !important;
-        transform: translateY(-50%) !important;
-        max-width: 450px;
-        border-radius: 24px;
-        box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-        overflow: hidden;
-        background: #fff;
+        margin-top: -180px !important; /* Centers vertically without breaking animations */
       }
       .modal-header-custom {
         background: linear-gradient(135deg, #14BBA6 0%, #0D5C63 100%);
@@ -1323,6 +1327,18 @@
         box-shadow: 0 15px 30px rgba(20, 187, 166, 0.6);
         color: white;
       }
+      
+      /* Mobile optimization */
+      @media (max-width: 600px) {
+        #privacy-modal, #terms-modal { margin-top: -190px !important; }
+        .modal-header-custom { padding: 30px 20px 20px; }
+        .modal-header-custom i { font-size: 40px; margin-bottom: 10px; }
+        .modal-header-custom h4 { font-size: 22px; }
+        .modal-body-custom { padding: 25px 20px 20px; }
+        .modal-body-custom p { font-size: 14px; }
+        .modal-footer-custom { padding: 0 20px 25px !important; }
+        .btn-got-it { height: 44px; line-height: 44px; font-size: 15px; padding: 0 35px; }
+      }
     </style>
     <div id="privacy-modal" class="modal">
       <div class="modal-header-custom">
@@ -1331,12 +1347,29 @@
       </div>
       <div class="modal-body-custom">
         <p>
-          <strong>Your privacy is protected.</strong><br><br>
-          This is a personal portfolio website. I do not collect, store, or share any personal data or use cookies for tracking. Information submitted via the contact form is solely used to reply to your inquiry.
+          <strong>Privacy Commitment</strong><br><br>
+          This website operates with a strict commitment to user privacy. We do not collect, store, or share personal data, and cookies are not used for tracking. Any information submitted via the contact form is secure and used solely for professional correspondence.
         </p>
       </div>
       <div class="modal-footer-custom">
         <a href="#!" class="modal-action modal-close btn-got-it">Got it, thanks!</a>
+      </div>
+    </div>
+
+    <!-- Terms of Use Modal -->
+    <div id="terms-modal" class="modal">
+      <div class="modal-header-custom">
+        <i class="fa fa-file-text-o"></i>
+        <h4>Terms of Use</h4>
+      </div>
+      <div class="modal-body-custom">
+        <p>
+          <strong>Intellectual Property & Usage</strong><br><br>
+          Welcome to my professional workspace. All projects and code showcased here are proprietary and intended for evaluation purposes. Unauthorized reproduction or commercial distribution of this work is prohibited. Please use the contact form strictly for professional inquiries.
+        </p>
+      </div>
+      <div class="modal-footer-custom">
+        <a href="#!" class="modal-action modal-close btn-got-it">I Understand</a>
       </div>
     </div>
 
