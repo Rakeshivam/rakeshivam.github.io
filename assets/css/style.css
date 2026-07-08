@@ -961,12 +961,12 @@ small {
   margin: 0;
 }
 
-/* Copyright Column (Center) */
+/* Copyright Column (Left) */
 .custom-footer .copyright-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 12px;
   flex: 1.5;
 }
@@ -985,7 +985,7 @@ small {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
   font-size: 14px;
 }
@@ -1099,7 +1099,15 @@ small {
   }
   .custom-footer .copyright-col {
     order: 3;
-    margin-top: 20px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(183, 199, 201, 0.2);
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .custom-footer .bottom-links {
+    justify-content: center;
   }
   .custom-footer .newsletter-form {
     flex-direction: column;
@@ -1128,6 +1136,7 @@ small {
 /* --- UPDATED FOOTER STYLES FOR FIGMA MATCH --- */
 .custom-footer {
   background-color: #0D5C63 !important; 
+  overflow: hidden;
 }
 
 /* Add dotted background to Let's Connect column */
@@ -1228,21 +1237,63 @@ small {
 /* Fix newsletter form styling */
 .custom-footer .newsletter-form {
   display: flex;
-  border-radius: 4px;
+  border-radius: 6px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+.custom-footer .newsletter-form:focus-within {
+  box-shadow: 0 4px 12px rgba(20, 187, 166, 0.2);
 }
 .custom-footer .newsletter-form input {
+  flex: 1 1 auto !important;
   background-color: #06181B !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #FFFFFF !important;
-  padding: 0 15px !important;
-  border-radius: 4px 0 0 4px !important;
+  padding: 0 16px !important;
+  border-radius: 6px 0 0 6px !important;
   margin-bottom: 0 !important;
-  height: 40px !important;
+  height: 42px !important;
   border-right: none !important;
   box-sizing: border-box !important;
+  transition: border-color 0.3s ease !important;
+  width: 100%;
+}
+.custom-footer .newsletter-form input:focus {
+  border-color: #14BBA6 !important;
+  outline: none !important;
 }
 .custom-footer .newsletter-form button {
-  border-radius: 0 4px 4px 0 !important;
-  height: 40px !important;
+  flex: 0 0 auto !important;
+  border-radius: 0 6px 6px 0 !important;
+  height: 42px !important;
   margin-top: 0 !important;
+  padding: 0 14px !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+.custom-footer .newsletter-form button i {
+  margin-left: 4px;
+}
+
+/* Mobile layout fixes for newsletter form */
+@media (max-width: 768px) {
+  .custom-footer .newsletter-form {
+    flex-direction: column !important;
+    gap: 12px !important;
+    box-shadow: none !important;
+  }
+  .custom-footer .newsletter-form:focus-within {
+    box-shadow: none !important;
+  }
+  .custom-footer .newsletter-form input {
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    width: 100% !important;
+  }
+  .custom-footer .newsletter-form button {
+    border-radius: 6px !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
