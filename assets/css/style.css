@@ -961,14 +961,15 @@ small {
   margin: 0;
 }
 
-/* Copyright Column (Left) */
+/* Copyright Column (Centered) */
 .custom-footer .copyright-col {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   gap: 12px;
-  flex: 1.5;
+  flex: 1;
+  width: 100%;
 }
 
 .custom-footer .copyright-col p {
@@ -985,7 +986,7 @@ small {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 12px;
   font-size: 14px;
 }
@@ -1047,43 +1048,73 @@ small {
 
 .custom-footer .newsletter-form {
   display: flex;
-  gap: 8px;
+  flex-direction: row;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  background-color: #06181B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.custom-footer .newsletter-form:focus-within {
+  box-shadow: 0 0 15px rgba(20, 187, 166, 0.4);
+  border-color: rgba(20, 187, 166, 0.6);
+}
+
+.custom-footer .newsletter-form .input-wrapper {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+.custom-footer .newsletter-form .form-icon {
+  position: absolute;
+  left: 16px;
+  color: #14BBA6;
+  font-size: 14px;
 }
 
 .custom-footer .newsletter-form input {
-  flex: 1;
-  background-color: rgba(0, 0, 0, 0.2) !important;
-  border: 1px solid #7A9092 !important;
-  border-radius: 6px !important;
-  padding: 0 12px !important;
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
   color: #FFFFFF !important;
-  height: 42px !important;
+  padding: 0 16px 0 42px !important;
   margin: 0 !important;
+  height: 48px !important;
   box-sizing: border-box !important;
 }
 
 .custom-footer .newsletter-form input:focus {
-  border-color: #14BBA6 !important;
+  border: none !important;
+  outline: none !important;
   box-shadow: none !important;
 }
 
 .custom-footer .newsletter-form button {
-  background-color: #14BBA6;
+  background: linear-gradient(135deg, #14BBA6, #0D8C7F);
   color: #FFFFFF;
   border: none;
-  border-radius: 6px;
-  padding: 0 16px;
+  padding: 0 24px;
   font-weight: 600;
   cursor: pointer;
-  height: 42px;
+  height: 48px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
 }
 
 .custom-footer .newsletter-form button:hover {
-  background-color: #2DD4BF;
+  background: linear-gradient(135deg, #2DD4BF, #14BBA6);
 }
 
 @media (max-width: 768px) {
@@ -1099,9 +1130,6 @@ small {
   }
   .custom-footer .copyright-col {
     order: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(183, 199, 201, 0.2);
     align-items: center;
     text-align: center;
     width: 100%;
