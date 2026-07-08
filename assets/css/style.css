@@ -500,6 +500,14 @@ a.hoverline:hover {
   padding-bottom: 20px;
 }
 
+#skills .row.text-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+
 #skills .col img.responsive-img {
   margin: 0 auto;
   max-height: 100px;
