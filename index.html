@@ -1269,8 +1269,11 @@
         box-shadow: 0 25px 60px rgba(0,0,0,0.4) !important;
         overflow: hidden !important;
         background: #fff !important;
+        position: fixed !important;
         top: 50% !important;
-        margin-top: -180px !important; /* Centers vertically without breaking animations */
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
       }
       .modal-header-custom {
         background: linear-gradient(135deg, #14BBA6 0%, #0D5C63 100%);
@@ -1330,7 +1333,6 @@
       
       /* Mobile optimization */
       @media (max-width: 600px) {
-        #privacy-modal, #terms-modal { margin-top: -190px !important; }
         .modal-header-custom { padding: 30px 20px 20px; }
         .modal-header-custom i { font-size: 40px; margin-bottom: 10px; }
         .modal-header-custom h4 { font-size: 22px; }
