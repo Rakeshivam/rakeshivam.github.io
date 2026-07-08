@@ -1242,7 +1242,7 @@
             <p class="developed-by">Crafted with <span class="heart">❤️</span> by Rakesh Kushwaha.</p>
             <p class="copyright">© 2026 Rakesh Kushwaha. All rights reserved.</p>
             <div class="bottom-links">
-              <a href="privacy-policy.html">Privacy Policy</a>
+              <a href="#privacy-modal" class="modal-trigger">Privacy Policy</a>
             </div>
 
           </div>
@@ -1252,6 +1252,94 @@
         </div>
       </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <style>
+      #lean-overlay {
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+      }
+      #privacy-modal {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        max-width: 450px;
+        border-radius: 24px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        overflow: hidden;
+        background: #fff;
+      }
+      .modal-header-custom {
+        background: linear-gradient(135deg, #14BBA6 0%, #0D5C63 100%);
+        padding: 40px 30px 25px;
+        text-align: center;
+        color: white;
+      }
+      .modal-header-custom i {
+        font-size: 55px;
+        margin-bottom: 15px;
+        display: block;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+      .modal-header-custom h4 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 0.5px;
+      }
+      .modal-body-custom {
+        padding: 35px 30px 20px;
+        background: #fff;
+      }
+      .modal-body-custom p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.8;
+        margin: 0;
+        text-align: center;
+      }
+      .modal-footer-custom {
+        padding: 0 30px 35px !important;
+        background: #fff !important;
+        text-align: center !important;
+        border-top: none !important;
+        height: auto !important;
+      }
+      .btn-got-it {
+        background: linear-gradient(135deg, #14BBA6 0%, #0D5C63 100%);
+        color: white;
+        border-radius: 30px;
+        padding: 0 45px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 17px;
+        font-weight: 600;
+        text-transform: none;
+        box-shadow: 0 10px 25px rgba(20, 187, 166, 0.4);
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .btn-got-it:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 30px rgba(20, 187, 166, 0.6);
+        color: white;
+      }
+    </style>
+    <div id="privacy-modal" class="modal">
+      <div class="modal-header-custom">
+        <i class="fa fa-shield"></i>
+        <h4>Privacy Policy</h4>
+      </div>
+      <div class="modal-body-custom">
+        <p>
+          <strong>Your privacy is protected.</strong><br><br>
+          This is a personal portfolio website. I do not collect, store, or share any personal data or use cookies for tracking. Information submitted via the contact form is solely used to reply to your inquiry.
+        </p>
+      </div>
+      <div class="modal-footer-custom">
+        <a href="#!" class="modal-action modal-close btn-got-it">Got it, thanks!</a>
+      </div>
+    </div>
+
   </main>
 
   <!-- typed.js -->
@@ -1281,6 +1369,8 @@
         edge: "left", // Choose the horizontal origin
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
       })
+      // Initialize modal
+      $('.modal-trigger').leanModal();
     })
 
   </script>
