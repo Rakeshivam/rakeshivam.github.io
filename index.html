@@ -1113,7 +1113,7 @@
                   <button class="btn waves-effect waves-light teal" onclick="resetForm()" style="margin-top: 30px; border-radius: 20px;">Send Another Message</button>
                 </div>
 
-                <form id="my-contact-form" action="https://formspree.io/f/xzdlqywy" method="POST" novalidate>
+                <form id="my-contact-form" method="POST" novalidate>
                   <div class="row">
                     <div class="input-field col s12 m6">
                       <i class="fa fa-user prefix teal-text"></i>
@@ -1282,6 +1282,14 @@
     })
 
   </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+       emailjs.init({
+         publicKey: "lyuL0KGbegDUSThOa"
+       });
+    })();
+  </script>
   <script>
     var form = document.getElementById("my-contact-form");
     var formTitle = document.getElementById("form-title");
@@ -1353,42 +1361,35 @@
         return;
       }
 
-      var data = new FormData(event.target);
       // Optionally show a loading state on the button
       var btn = form.querySelector('button[type="submit"]');
       var originalBtnText = btn.innerHTML;
       btn.innerHTML = 'Sending... <i class="fa fa-spinner fa-spin right"></i>';
       btn.disabled = true;
 
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        btn.innerHTML = originalBtnText;
-        btn.disabled = false;
-        
-        if (response.ok) {
+      // Using EmailJS v4 correct syntax
+      emailjs.sendForm('service_dcgfiwy', 'template_esn5jqi', form, {
+        publicKey: 'lyuL0KGbegDUSThOa',
+      })
+        .then(function() {
+          btn.innerHTML = originalBtnText;
+          btn.disabled = false;
           // Hide form and show success message
           form.style.display = "none";
           formTitle.style.display = "none";
           successMsg.style.display = "block";
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              Materialize.toast(data["errors"].map(error => error["message"]).join(", "), 4000, 'red');
-            } else {
-              Materialize.toast('Oops! There was a problem submitting your form', 4000, 'red');
-            }
-          })
-        }
-      }).catch(error => {
-        btn.innerHTML = originalBtnText;
-        btn.disabled = false;
-        Materialize.toast('Oops! There was a problem submitting your form', 4000, 'red');
-      });
+        }, function(error) {
+          btn.innerHTML = originalBtnText;
+          btn.disabled = false;
+          
+          // Show explicit error if Template ID is wrong
+          if(error.text && error.text.includes("Template not found")) {
+            alert("Error: Template ID incorrect. Please check your exact Template ID in EmailJS Settings.");
+          } else {
+            Materialize.toast('Oops! Failed to send: ' + JSON.stringify(error), 4000, 'red');
+          }
+          console.log('FAILED...', error);
+        });
     }
     if(form) {
       form.addEventListener("submit", handleSubmit);
