@@ -1362,3 +1362,88 @@ small {
   }
 }
 
+/* --- PRIVACY & TERMS MODAL STYLES --- */
+#lean-overlay {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+#privacy-modal, #terms-modal {
+  width: 90% !important;
+  max-width: 450px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}
+.modal-header-custom {
+  background: linear-gradient(135deg, #14BBA6 0%, #0D5C63 100%);
+  padding: 40px 30px 25px;
+  text-align: center;
+  color: white;
+}
+.modal-header-custom i {
+  font-size: 55px;
+  margin-bottom: 15px;
+  display: block;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.modal-header-custom h4 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+.modal-body-custom {
+  padding: 35px 30px 20px;
+  background: #fff;
+}
+.modal-body-custom p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+  text-align: center;
+}
+.modal-footer-custom {
+  padding: 0 30px 35px !important;
+  background: #fff !important;
+  text-align: center !important;
+  border-top: none !important;
+  height: auto !important;
+}
+.btn-got-it {
+  background: linear-gradient(135deg, #14BBA6 0%, #0D5C63 100%);
+  color: white;
+  border-radius: 30px;
+  padding: 0 45px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: none;
+  box-shadow: 0 10px 25px rgba(20, 187, 166, 0.4);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.btn-got-it:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(20, 187, 166, 0.6);
+  color: white;
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .modal-header-custom { padding: 30px 20px 20px; }
+  .modal-header-custom i { font-size: 40px; margin-bottom: 10px; }
+  .modal-header-custom h4 { font-size: 22px; }
+  .modal-body-custom { padding: 25px 20px 20px; }
+  .modal-body-custom p { font-size: 14px; }
+  .modal-footer-custom { padding: 0 20px 25px !important; }
+  .btn-got-it { height: 44px; line-height: 44px; font-size: 15px; padding: 0 35px; }
+}
+
