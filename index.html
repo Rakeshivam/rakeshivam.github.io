@@ -1140,36 +1140,36 @@
                 </div>
 
                 <form id="my-contact-form" method="POST" novalidate>
-                  <div class="row">
+                  <div class="row" style="margin-bottom: 0;">
                     <div class="input-field col s12 m6">
                       <i class="fa fa-user prefix teal-text"></i>
                       <input id="contact_name" type="text" name="name" required class="validate">
                       <label for="contact_name">Your Name</label>
-                      <span id="err_name" style="color: #F44336; font-size: 12px; position: absolute; bottom: -18px; left: 3rem; display: none;">Name is required</span>
+                      <span id="err_name" class="form-error">Name is required</span>
                     </div>
                     <div class="input-field col s12 m6">
                       <i class="fa fa-envelope prefix teal-text"></i>
                       <input id="contact_email" type="email" name="email" required class="validate">
                       <label for="contact_email">Your Email</label>
-                      <span id="err_email" style="color: #F44336; font-size: 12px; position: absolute; bottom: -18px; left: 3rem; display: none;">Email is required</span>
+                      <span id="err_email" class="form-error">Email is required</span>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-bottom: 0;">
                     <div class="input-field col s12">
                       <i class="fa fa-phone prefix teal-text"></i>
                       <input id="contact_phone" type="tel" name="phone" class="validate">
                       <label for="contact_phone">Your Phone (Optional)</label>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-bottom: 0;">
                     <div class="input-field col s12">
                       <i class="fa fa-comment prefix teal-text"></i>
                       <textarea id="contact_message" name="message" class="materialize-textarea validate" required></textarea>
                       <label for="contact_message">Your Message</label>
-                      <span id="err_msg" style="color: #F44336; font-size: 12px; position: absolute; bottom: -18px; left: 3rem; display: none;">Message cannot be empty</span>
+                      <span id="err_msg" class="form-error">Message cannot be empty</span>
                     </div>
                   </div>
-                  <div class="row center-align" style="margin-top: 20px;">
+                  <div class="row center-align" style="margin-top: 30px; margin-bottom: 0;">
                     <button class="btn waves-effect waves-light teal" type="submit" style="border-radius: 20px; padding: 0 40px; font-weight: 600;">
                       Send Message <i class="fa fa-paper-plane right"></i>
                     </button>
