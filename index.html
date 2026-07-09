@@ -1314,6 +1314,11 @@
       </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+      <i class="fa fa-chevron-up"></i>
+    </button>
+
   </main>
 
   <!-- typed.js -->
@@ -1345,6 +1350,36 @@
       })
       // Initialize modal
       $('.modal-trigger').leanModal();
+
+      // Professional smooth scroll for ALL nav links
+      $('nav a[href^="#"], .buttons a[href^="#"], .footer-col a[href^="#"]').on('click', function (e) {
+        var hash = this.hash;
+        if (!hash) return;
+        var target = $(hash);
+        if (target.length) {
+          e.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top
+          }, 900, 'swing');
+        }
+      });
+
+      // Scroll to Top Button - show/hide on scroll
+      var scrollBtn = $('#scroll-to-top');
+      $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 300) {
+          scrollBtn.addClass('show');
+        } else {
+          scrollBtn.removeClass('show');
+        }
+      });
+
+      // Scroll to Top Button - click handler
+      scrollBtn.on('click', function () {
+        $('html, body').stop().animate({
+          scrollTop: 0
+        }, 900, 'swing');
+      });
     })
 
   </script>
