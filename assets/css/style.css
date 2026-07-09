@@ -1570,7 +1570,8 @@ small {
 
 #my-contact-form textarea.materialize-textarea {
   min-height: 6rem;
-  overflow-y: auto;
+  max-height: 150px;
+  overflow-y: auto !important;
   resize: none;
 }
 

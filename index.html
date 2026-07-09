@@ -1496,6 +1496,29 @@
       form.addEventListener("submit", handleSubmit);
     }
   </script>
+
+  <!-- Cap textarea height for message field -->
+  <script>
+    (function() {
+      var ta = document.getElementById('contact_message');
+      if (!ta) return;
+      var maxH = 150;
+      ta.addEventListener('input', function() {
+        if (ta.scrollHeight > maxH) {
+          ta.style.height = maxH + 'px';
+          ta.style.overflowY = 'auto';
+        }
+      });
+      // Also observe style changes from Materialize auto-resize
+      var observer = new MutationObserver(function() {
+        if (parseInt(ta.style.height) > maxH) {
+          ta.style.height = maxH + 'px';
+          ta.style.overflowY = 'auto';
+        }
+      });
+      observer.observe(ta, { attributes: true, attributeFilter: ['style'] });
+    })();
+  </script>
 </body>
 
 </html>
