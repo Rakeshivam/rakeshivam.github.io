@@ -1517,6 +1517,97 @@
       observer.observe(ta, { attributes: true, attributeFilter: ['style'] });
     })();
   </script>
+
+  <!-- PWA Install Popup Banner -->
+  <div id="pwa-install-banner" class="pwa-install-banner">
+    <div class="pwa-icon-container">
+      <i class="fa fa-download"></i>
+    </div>
+    <div class="pwa-text-container">
+      <p class="pwa-title">Install App</p>
+      <p class="pwa-desc">Install the app for a faster & offline-capable experience!</p>
+    </div>
+    <div class="pwa-actions">
+      <button id="pwa-btn-later" class="pwa-btn pwa-btn-later">Later</button>
+      <button id="pwa-btn-install" class="pwa-btn pwa-btn-install">Install</button>
+    </div>
+  </div>
+
+  <!-- PWA Registration & Install Dialog Script -->
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(reg) {
+            console.log('Service Worker registered successfully with scope:', reg.scope);
+          })
+          .catch(function(err) {
+            console.error('Service Worker registration failed:', err);
+          });
+      });
+    }
+
+    // Handle Custom Install Prompt
+    var deferredPrompt;
+    var pwaBanner = document.getElementById('pwa-install-banner');
+    var installBtn = document.getElementById('pwa-btn-install');
+    var laterBtn = document.getElementById('pwa-btn-later');
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+      // Prevent automatic browser prompt
+      e.preventDefault();
+      // Store event
+      deferredPrompt = e;
+
+      // Show banner if not dismissed in the last 24 hours
+      var dismissedTime = localStorage.getItem('pwa-prompt-dismissed-time');
+      var now = Date.now();
+      var oneDay = 24 * 60 * 60 * 1000;
+
+      if (!dismissedTime || (now - parseInt(dismissedTime)) > oneDay) {
+        if (pwaBanner) {
+          pwaBanner.classList.add('show');
+        }
+      }
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', function() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(function(choiceResult) {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the PWA install prompt');
+            } else {
+              console.log('User dismissed the PWA install prompt');
+            }
+            deferredPrompt = null;
+          });
+        }
+        if (pwaBanner) {
+          pwaBanner.classList.remove('show');
+        }
+      });
+    }
+
+    if (laterBtn) {
+      laterBtn.addEventListener('click', function() {
+        localStorage.setItem('pwa-prompt-dismissed-time', Date.now().toString());
+        if (pwaBanner) {
+          pwaBanner.classList.remove('show');
+        }
+      });
+    }
+
+    // Hide banner if app is installed successfully
+    window.addEventListener('appinstalled', function(evt) {
+      console.log('PWA was installed successfully');
+      if (pwaBanner) {
+        pwaBanner.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 
 </html>
