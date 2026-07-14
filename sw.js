@@ -1,11 +1,11 @@
-const CACHE_NAME = 'rakesh-portfolio-v1';
+const CACHE_NAME = 'rakesh-portfolio-v2';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/assets/css/style.css',
-  '/assets/img/RK.jpg',
-  '/assets/img/favicon/manifest.json',
-  '/assets/img/favicon/android-icon-192x192.png'
+  './',
+  'index.html',
+  'assets/css/style.css',
+  'assets/img/RK.jpg',
+  'assets/img/favicon/manifest.json',
+  'assets/img/favicon/android-icon-192x192.png'
 ];
 
 // Install Event
@@ -42,7 +42,7 @@ self.addEventListener('fetch', (event) => {
       return fetch(event.request).catch(() => {
         // Fallback for offline if requested document is html
         if (event.request.headers.get('accept').includes('text/html')) {
-          return caches.match('/index.html');
+          return caches.match('index.html');
         }
       });
     })
